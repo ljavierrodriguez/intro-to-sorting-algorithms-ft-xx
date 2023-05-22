@@ -86,3 +86,38 @@ arr.sort((a, b) => a - b); // menor a mayor
 arr.sort((a, b) => b - a); // mayor a menor
 
 console.log(arr)
+
+
+let frutas = ["Pera", "Manzana", "Uva", "Melon", "Sandia", "Kiwi", "Nispero", "Limon", "Mango"];
+//let frutas = ["Kiwi", "Melon", "Uva", "Pera", "Sandia", "Manzana", "Nispero", "Limon", "Mango"];
+
+function selectedSort(arr = []){
+    let min = 1;
+    while(min < arr.length - 1){
+        for(let i = min + 1; i < arr.length; i++){
+            if(arr[min] > arr[i]){
+                let aux = arr[min];
+                arr[min] = arr[i];
+                arr[i] = aux;
+            }
+        }
+        min++;
+    }
+
+    return arr;
+}
+let resultado = null;
+console.log(frutas);
+
+resultado = selectedSort([...frutas]);
+console.log("Selected Sorting")
+console.time()
+console.log(resultado);
+console.timeEnd()
+
+resultado = bubbleSort2([frutas]);
+console.log("Bubble Sorting")
+console.time()
+console.log(resultado);
+console.timeEnd()
+
